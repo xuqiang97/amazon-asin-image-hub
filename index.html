@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>A+ 页面骨架 · 亚马逊 ASIN 图片中心</title>
+  <style>
+    html { color-scheme: light dark; }
+    body { margin: 0; padding: 20px; background: light-dark(#f6f7f9, #121417); }
+    #aplus-wireframe { max-width: 1200px; margin: 0 auto; }
+    @media (max-width: 600px) { body { padding: 8px; } }
+  </style>
+<style>
+#aplus-wireframe { --aw-bg:light-dark(#fff,#1d2025); --aw-base:light-dark(#f5f6f7,#17191d); --aw-ink:light-dark(#20252d,#e7e9ed); --aw-muted:light-dark(#66707d,#aeb6c2); --aw-line:light-dark(#dce0e5,#3f4650); --aw-soft:light-dark(#f0f2f4,#2a2f36); --aw-accent:light-dark(#315e59,#a9d9d1); --aw-on:light-dark(#fff,#17332f); --aw-pass:light-dark(#36745e,#a0d8bd); --aw-error:light-dark(#a44840,#eeaaa4); --aw-space:16px; color:var(--aw-ink); background:var(--aw-base); border:1px solid var(--aw-line); border-radius:12px; font-family:Arial,"Microsoft YaHei",sans-serif; font-size:14px; line-height:1.5; overflow:clip; }
+#aplus-wireframe * { box-sizing:border-box; }
+#aplus-wireframe [hidden] { display:none !important; }
+#aplus-wireframe button,#aplus-wireframe input,#aplus-wireframe select { font:inherit; }
+#aplus-wireframe button { cursor:pointer; }
+#aplus-wireframe button:disabled { cursor:default; opacity:.48; }
+#aplus-wireframe .aw-header { background:var(--aw-bg); padding:18px 22px 0; border-bottom:1px solid var(--aw-line); }
+#aplus-wireframe .aw-title-row,#aplus-wireframe .aw-row { display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+#aplus-wireframe .aw-brand { font-size:18px; font-weight:500; }
+#aplus-wireframe .aw-note { font-size:12px; color:var(--aw-muted); }
+#aplus-wireframe .aw-tabs { display:flex; gap:26px; margin-top:16px; }
+#aplus-wireframe .aw-tab { border:0; background:transparent; padding:10px 3px; color:var(--aw-muted); border-bottom:3px solid transparent; }
+#aplus-wireframe .aw-tab[aria-selected="true"] { border-bottom-color:var(--aw-accent); color:var(--aw-accent); font-weight:500; }
+#aplus-wireframe .aw-main { padding:22px; }
+#aplus-wireframe .aw-pagehead { margin-bottom:18px; }
+#aplus-wireframe h2 { font-size:19px; font-weight:500; line-height:1.4; margin:0; }
+#aplus-wireframe h3 { font-size:14px; font-weight:500; line-height:1.4; margin:0; }
+#aplus-wireframe .aw-btn { border:1px solid var(--aw-line); border-radius:6px; padding:8px 13px; background:var(--aw-bg); color:var(--aw-ink); min-height:36px; }
+#aplus-wireframe .aw-btn:hover { background:var(--aw-soft); }
+#aplus-wireframe .aw-primary { background:var(--aw-accent); color:var(--aw-on); border-color:var(--aw-accent); }
+#aplus-wireframe .aw-primary:hover { background:var(--aw-accent); opacity:.9; }
+#aplus-wireframe .aw-link { border:0; padding:6px 0; color:var(--aw-accent); background:transparent; text-align:left; }
+#aplus-wireframe .aw-back { margin-bottom:8px; }
+#aplus-wireframe .aw-panel { background:var(--aw-bg); border:1px solid var(--aw-line); border-radius:8px; }
+#aplus-wireframe .aw-filters { padding:var(--aw-space); display:grid; grid-template-columns:1.2fr 1.2fr 1fr 1fr; gap:12px; margin-bottom:16px; }
+#aplus-wireframe .aw-field { display:flex; flex-direction:column; gap:6px; font-size:12px; color:var(--aw-muted); }
+#aplus-wireframe .aw-field input,#aplus-wireframe .aw-field select { width:100%; min-width:0; padding:8px 10px; border:1px solid var(--aw-line); border-radius:5px; color:var(--aw-ink); background:var(--aw-bg); font-size:14px; min-height:37px; }
+#aplus-wireframe .aw-table { width:100%; border-collapse:collapse; font-size:13px; }
+#aplus-wireframe .aw-table th { text-align:left; font-weight:400; color:var(--aw-muted); background:var(--aw-soft); padding:12px; }
+#aplus-wireframe .aw-table td { padding:var(--aw-space) 12px; border-top:1px solid var(--aw-line); vertical-align:middle; }
+#aplus-wireframe .aw-cellmeta { display:block; font-size:12px; color:var(--aw-muted); margin-top:4px; }
+#aplus-wireframe .aw-status { display:inline-flex; align-items:center; gap:6px; white-space:nowrap; }
+#aplus-wireframe .aw-status::before { content:""; width:6px; height:6px; border-radius:50%; background:currentColor; }
+#aplus-wireframe .aw-status[data-state="上传成功"] { color:var(--aw-pass); }
+#aplus-wireframe .aw-status[data-state="上传失败"] { color:var(--aw-error); }
+#aplus-wireframe .aw-mini { width:42px; height:30px; display:inline-flex; align-items:center; justify-content:center; background:var(--aw-soft); border:1px solid var(--aw-line); color:var(--aw-muted); border-radius:3px; margin-right:7px; font-size:11px; }
+#aplus-wireframe .aw-footnote { padding:12px 16px; border-top:1px solid var(--aw-line); color:var(--aw-muted); font-size:12px; }
+#aplus-wireframe .aw-empty { padding:38px 16px; text-align:center; color:var(--aw-muted); }
+#aplus-wireframe .aw-target { padding:16px; display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px; }
+#aplus-wireframe .aw-work { display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); gap:16px; }
+#aplus-wireframe[data-layout="stack"] .aw-work { grid-template-columns:1fr; }
+#aplus-wireframe .aw-panelhead { padding:14px 16px; border-bottom:1px solid var(--aw-line); }
+#aplus-wireframe .aw-panelbody { padding:16px; }
+#aplus-wireframe .aw-sourcebar { display:flex; gap:8px; margin-bottom:16px; }
+#aplus-wireframe .aw-sourcebar button[aria-pressed="true"] { border-color:var(--aw-accent); color:var(--aw-accent); background:var(--aw-soft); }
+#aplus-wireframe .aw-group { margin-bottom:18px; }
+#aplus-wireframe .aw-grouptitle { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:9px; color:var(--aw-muted); font-size:12px; }
+#aplus-wireframe .aw-materials { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:9px; }
+#aplus-wireframe .aw-material { min-width:0; text-align:left; background:var(--aw-bg); padding:0; border:1px solid var(--aw-line); border-radius:5px; overflow:hidden; }
+#aplus-wireframe .aw-material[aria-pressed="true"] { border:2px solid var(--aw-accent); }
+#aplus-wireframe .aw-picture { background:var(--aw-soft); color:var(--aw-muted); display:flex; align-items:center; justify-content:center; min-height:65px; border-bottom:1px solid var(--aw-line); font-size:20px; font-weight:400; }
+#aplus-wireframe .aw-picture-label { padding:7px; display:flex; justify-content:space-between; align-items:center; font-size:12px; gap:4px; }
+#aplus-wireframe .aw-picked { display:flex; align-items:center; gap:9px; padding:9px 0; border-bottom:1px solid var(--aw-line); }
+#aplus-wireframe .aw-picked:last-child { border-bottom:0; }
+#aplus-wireframe .aw-picked .aw-mini { width:60px; height:40px; flex-shrink:0; margin:0; }
+#aplus-wireframe .aw-order { width:18px; color:var(--aw-muted); flex-shrink:0; text-align:center; }
+#aplus-wireframe .aw-pickedtext { flex:1; min-width:0; font-size:13px; }
+#aplus-wireframe .aw-pickactions { display:flex; gap:3px; }
+#aplus-wireframe .aw-smallbtn { padding:4px 6px; min-width:27px; min-height:29px; border:1px solid var(--aw-line); background:var(--aw-bg); color:var(--aw-ink); border-radius:4px; font-size:12px; }
+#aplus-wireframe .aw-upload { border:1px dashed var(--aw-line); padding:26px 12px; text-align:center; border-radius:5px; margin-bottom:16px; }
+#aplus-wireframe .aw-actions { margin-top:16px; display:flex; justify-content:flex-end; gap:10px; align-items:center; flex-wrap:wrap; }
+#aplus-wireframe .aw-actions .aw-note { margin-right:auto; }
+#aplus-wireframe .aw-detailgrid { display:grid; grid-template-columns:minmax(0,1.4fr) minmax(0,1fr); gap:16px; }
+#aplus-wireframe .aw-snapshots { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; }
+#aplus-wireframe .aw-snapshot { border:1px solid var(--aw-line); border-radius:5px; overflow:hidden; }
+#aplus-wireframe .aw-kv { display:grid; grid-template-columns:72px 1fr; gap:12px; font-size:13px; margin:0; }
+#aplus-wireframe .aw-kv dt { color:var(--aw-muted); }
+#aplus-wireframe .aw-kv dd { margin:0; overflow-wrap:anywhere; }
+#aplus-wireframe .aw-result { margin-top:20px; padding-top:16px; border-top:1px solid var(--aw-line); }
+#aplus-wireframe .aw-preview { max-width:610px; margin:auto; }
+#aplus-wireframe .aw-previewitem { padding:28px 16px; margin-bottom:10px; min-height:104px; background:var(--aw-soft); border:1px solid var(--aw-line); border-radius:5px; text-align:center; color:var(--aw-muted); }
+#aplus-wireframe .aw-error { color:var(--aw-error); font-size:13px; margin-top:10px; }
+@media(max-width:760px) { #aplus-wireframe .aw-work,#aplus-wireframe .aw-detailgrid { grid-template-columns:1fr; } #aplus-wireframe .aw-filters { grid-template-columns:1fr 1fr; } #aplus-wireframe .aw-main { padding:14px; } #aplus-wireframe .aw-header { padding:16px 16px 0; } }
+@media(max-width:600px) { #aplus-wireframe .aw-table thead { display:none; } #aplus-wireframe .aw-table,#aplus-wireframe .aw-table tbody { display:block; } #aplus-wireframe .aw-table tr { display:grid; grid-template-columns:1fr 1fr; padding:12px; gap:12px; border-top:1px solid var(--aw-line); } #aplus-wireframe .aw-table td { display:block; border:0; padding:0; min-width:0; overflow-wrap:anywhere; } #aplus-wireframe .aw-table td::before { content:attr(data-label); display:block; color:var(--aw-muted); font-size:11px; margin-bottom:4px; } }
+@media(max-width:380px) { #aplus-wireframe .aw-target { grid-template-columns:1fr; } #aplus-wireframe .aw-brand { font-size:16px; } #aplus-wireframe .aw-materials,#aplus-wireframe .aw-snapshots { grid-template-columns:repeat(2,minmax(0,1fr)); } #aplus-wireframe .aw-picked { gap:5px; } #aplus-wireframe .aw-picked .aw-mini { width:40px; } #aplus-wireframe .aw-panelbody { padding:12px; } }
+@media(pointer:coarse) { #aplus-wireframe button { min-height:44px; } #aplus-wireframe .aw-pickactions { flex-wrap:wrap; } }
+</style>
+</head>
+<body>
+<div id="aplus-wireframe" aria-label="A+ 页面骨架" data-layout="split">
+  <header class="aw-header">
+    <div class="aw-title-row"><div class="aw-brand">亚马逊 ASIN 图片中心</div><span class="aw-note">页面骨架 · 示例数据</span></div>
+    <div class="aw-tabs" role="tablist" aria-label="图片类型">
+      <button type="button" class="aw-tab" role="tab" aria-selected="false" disabled>商品图</button>
+      <button type="button" class="aw-tab" id="aw-aplus-tab" role="tab" aria-selected="true" aria-controls="aw-main">A+ 图</button>
+    </div>
+  </header>
+  <main class="aw-main" id="aw-main" role="tabpanel" aria-labelledby="aw-aplus-tab">
+    <section id="aw-list">
+      <div class="aw-pagehead aw-row"><div><h2>A+ 推送</h2><span class="aw-note">我的推送</span></div><button type="button" class="aw-btn aw-primary" id="aw-new">＋ 新建 A+ 推送</button></div>
+      <div class="aw-panel aw-filters">
+        <label class="aw-field">店铺<select id="aw-filter-shop"><option value="">全部店铺</option>Amazon-示例-US</option></select></label>
+        <label class="aw-field">ASIN<input id="aw-filter-asin" placeholder="输入 ASIN" aria-label="搜索 ASIN"></label>
+        <label class="aw-field">状态<select id="aw-filter-status"><option value="">全部状态</option><option>处理中</option><option>上传成功</option><option>上传失败</option></select></label>
+        <label class="aw-field">任务来源<select id="aw-filter-source"><option value="">全部来源</option><option>人工</option><option>自动</option></select></label>
+      </div>
+      <div class="aw-panel"><table class="aw-table"><thead><tr><th>店铺 / ASIN</th><th>推送内容</th><th>来源 / 发起人</th><th>状态</th><th>推送时间</th><th>操作</th></tr></thead><tbody id="aw-rows"></tbody></table><div class="aw-footnote" id="aw-count"></div></div>
+    </section>
+    <section id="aw-compose" hidden>
+      <button type="button" class="aw-link aw-back" data-go="list">← 返回推送列表</button>
+      <div class="aw-pagehead aw-row"><h2>新建 A+ 推送</h2><span class="aw-note">选图 → 排序 → 预览确认</span></div>
+      <div class="aw-panel aw-target">
+        <label class="aw-field">目标店铺<select id="aw-shop"><option>Amazon-示例-US</option></select></label>
+        <label class="aw-field">目标 ASIN<select id="aw-asin"><option>B0DEMO0001</option><option>B0DEMO0002</option></select></label>
+      </div>
+      <div class="aw-work">
+        <section class="aw-panel"><div class="aw-panelhead"><h3>可选素材</h3></div><div class="aw-panelbody">
+          <div class="aw-sourcebar"><button type="button" class="aw-btn" id="aw-ai-source" aria-pressed="true">已有 AI 图片</button><button type="button" class="aw-btn" id="aw-local-source" aria-pressed="false">本地上传</button></div>
+          <div id="aw-ai-pool"></div>
+          <div id="aw-local-pool" hidden><div class="aw-upload"><div>本地图片上传区域</div><span class="aw-note">检测通过后可选入发布内容</span><div style="margin-top:12px"><button type="button" class="aw-btn" id="aw-add-local">添加一张示例图片</button></div></div><div id="aw-local-items" class="aw-materials"></div></div>
+        </div></section>
+        <section class="aw-panel"><div class="aw-panelhead aw-row"><h3>本次发布内容</h3><span id="aw-selected-count" class="aw-note" aria-live="polite">已选 0 张</span></div><div class="aw-panelbody"><div id="aw-selected"></div></div></section>
+      </div>
+      <div class="aw-actions"><span class="aw-note">图片数量规则待定</span><button type="button" class="aw-btn" data-go="list">取消</button><button type="button" class="aw-btn aw-primary" id="aw-preview-btn" disabled>预览并确认</button></div>
+    </section>
+    <section id="aw-preview" hidden>
+      <button type="button" class="aw-link aw-back" data-go="compose">← 返回调整图片</button>
+      <div class="aw-pagehead aw-row"><div><h2>确认图片及顺序</h2><span class="aw-note" id="aw-preview-target"></span></div><span class="aw-note">图片顺序示意</span></div>
+      <div class="aw-preview" id="aw-preview-images"></div>
+      <div class="aw-actions"><span class="aw-note">演示交互，不会实际推送</span><button type="button" class="aw-btn" data-go="compose">继续调整</button><button type="button" class="aw-btn aw-primary" id="aw-confirm">确认推送</button></div>
+    </section>
+    <section id="aw-detail" hidden>
+      <button type="button" class="aw-link aw-back" data-go="list">← 返回推送列表</button>
+      <div class="aw-pagehead aw-row"><div><h2>推送详情</h2><span class="aw-note" id="aw-detail-id"></span></div><span class="aw-status" id="aw-detail-status"></span></div>
+      <div class="aw-detailgrid">
+        <section class="aw-panel"><div class="aw-panelhead aw-row"><h3>本次提交快照</h3><span id="aw-detail-count" class="aw-note"></span></div><div class="aw-panelbody"><div id="aw-snapshots" class="aw-snapshots"></div></div></section>
+        <section class="aw-panel"><div class="aw-panelhead"><h3>推送信息与结果</h3></div><div class="aw-panelbody"><dl class="aw-kv" id="aw-detail-info"></dl><div class="aw-result"><h3>处理结果</h3><div id="aw-detail-result" style="margin-top:10px"></div></div></div></section>
+      </div>
+      <div class="aw-actions"><span class="aw-note">修改后形成新推送单，原快照保留</span><button type="button" class="aw-btn" id="aw-copy">基于这次内容修改</button></div>
+    </section>
+  </main>
+</div>
+<script>
+(() => {
+  const root = document.getElementById('aplus-wireframe');
+  const el = id => root.querySelector('#'+id);
+  const safe = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const assets = [
+    ...['A1','A2','A3'].map(id => ({id, asin:'B0DEMO0001', group:'生图任务 A', origin:'AI 图片', state:'审核通过'})),
+    ...['B1','B2','B3','B4'].map(id => ({id, asin:'B0DEMO0001', group:'生图任务 B', origin:'AI 图片', state:'审核通过'})),
+    ...Array.from({length:7},(_,i)=>({id:'C'+(i+1), asin:'B0DEMO0001', group:'生图任务 C', origin:'AI 图片', state:'审核通过'})),
+    ...Array.from({length:7},(_,i)=>({id:'D'+(i+1), asin:'B0DEMO0002', group:'生图任务 D', origin:'AI 图片', state:'审核通过'}))
+  ];
+  const originalIds = assets.filter(a=>['生图任务 A','生图任务 B'].includes(a.group)).map(a=>a.id);
+  const records = [
+    {id:'PUSH-003',asin:'B0DEMO0001',source:'人工',status:'处理中',time:'09-14 10:30',images:[...originalIds]},
+    {id:'PUSH-002',asin:'B0DEMO0002',source:'人工',status:'上传失败',time:'09-14 09:20',images:assets.filter(a=>a.group==='生图任务 D').map(a=>a.id)},
+    {id:'PUSH-001',asin:'B0DEMO0001',source:'自动',status:'上传成功',time:'09-13 16:40',images:assets.filter(a=>a.group==='生图任务 C').map(a=>a.id)}
+  ];
+  let selected = [], detailId = '', localCounter = 0, dragId = null;
+  const findAsset = id => assets.find(a=>a.id===id);
+  const show = screen => {
+    ['list','compose','preview','detail'].forEach(name => { el('aw-'+name).hidden = name!==screen; });
+    if(screen==='list') renderRows();
+  };
+  function renderRows() {
+    const query=el('aw-filter-asin').value.trim().toUpperCase();
+    const status=el('aw-filter-status').value, source=el('aw-filter-source').value;
+    const rows=records.filter(r=>(!query||r.asin.includes(query))&&(!status||r.status===status)&&(!source||r.source===source));
+    el('aw-rows').innerHTML = rows.map(r=>`<tr><td data-label="店铺 / ASIN">Amazon-示例-US<span class="aw-cellmeta">${r.asin}</span></td><td data-label="推送内容"><span class="aw-mini">A+</span>${r.images.length} 张<span class="aw-cellmeta">${r.id}</span></td><td data-label="来源 / 发起人">${r.source}<span class="aw-cellmeta">当前用户</span></td><td data-label="状态"><span class="aw-status" data-state="${r.status}">${r.status}</span></td><td data-label="推送时间">${r.time}</td><td data-label="操作"><button type="button" class="aw-link" data-detail="${r.id}">查看详情</button></td></tr>`).join('');
+    el('aw-count').textContent=rows.length?`共 ${rows.length} 条推送记录`:'暂无匹配记录';
+    el('aw-rows').querySelectorAll('[data-detail]').forEach(b=>b.onclick=()=>openDetail(b.dataset.detail));
+  }
+  function material(a) {
+    const active=selected.includes(a.id);
+    return `<button type="button" class="aw-material" data-asset="${a.id}" aria-pressed="${active}" aria-label="${active?'移除':'选用'}图片 ${a.id}"><span class="aw-picture">${a.id}</span><span class="aw-picture-label"><span>${a.state}</span><span>${active?'✓':'＋'}</span></span></button>`;
+  }
+  function renderSelection() {
+    const currentAsin=el('aw-asin').value;
+    const groups=['生图任务 B','生图任务 A','生图任务 C','生图任务 D'].filter(group=>assets.some(a=>a.asin===currentAsin&&a.group===group));
+    el('aw-ai-pool').innerHTML=groups.map(group=>`<details class="aw-group" ${group==='生图任务 C'?'':'open'}><summary class="aw-grouptitle">${group} · 已完成 · ${assets.filter(a=>a.group===group).length} 张可用</summary><div class="aw-materials">${assets.filter(a=>a.group===group&&a.asin===currentAsin).map(material).join('')}</div></details>`).join('');
+    el('aw-local-items').innerHTML=assets.filter(a=>a.origin==='本地上传'&&a.asin===currentAsin).map(material).join('');
+    el('aw-selected-count').textContent=`已选 ${selected.length} 张`;
+    el('aw-selected').innerHTML=selected.length?selected.map((id,i)=>{const a=findAsset(id);return `<div class="aw-picked" draggable="true" data-drag="${id}"><span class="aw-order">${i+1}</span><span class="aw-mini">${id}</span><div class="aw-pickedtext">图片 ${id}<span class="aw-cellmeta">${a.group}</span></div><div class="aw-pickactions"><button type="button" class="aw-smallbtn" data-up="${id}" aria-label="上移 ${id}" ${i===0?'disabled':''}>↑</button><button type="button" class="aw-smallbtn" data-down="${id}" aria-label="下移 ${id}" ${i===selected.length-1?'disabled':''}>↓</button><button type="button" class="aw-smallbtn" data-remove="${id}" aria-label="移除 ${id}">×</button></div></div>`}).join(''):'<div class="aw-empty">从左侧选择图片<div class="aw-note" style="margin-top:6px">选中后在这里调整发布顺序</div></div>';
+    el('aw-preview-btn').disabled=selected.length===0;
+    root.querySelectorAll('[data-asset]').forEach(b=>b.onclick=()=>{const id=b.dataset.asset;selected=selected.includes(id)?selected.filter(x=>x!==id):[...selected,id];renderSelection();});
+    root.querySelectorAll('[data-remove]').forEach(b=>b.onclick=()=>{selected=selected.filter(x=>x!==b.dataset.remove);renderSelection();});
+    function move(id,offset){const i=selected.indexOf(id),j=i+offset;if(j<0||j>=selected.length)return;[selected[i],selected[j]]=[selected[j],selected[i]];renderSelection();}
+    root.querySelectorAll('[data-up]').forEach(b=>b.onclick=()=>move(b.dataset.up,-1));
+    root.querySelectorAll('[data-down]').forEach(b=>b.onclick=()=>move(b.dataset.down,1));
+    root.querySelectorAll('[data-drag]').forEach(row=>{row.ondragstart=e=>{dragId=row.dataset.drag;e.dataTransfer.setData('text/plain',dragId);};row.ondragover=e=>e.preventDefault();row.ondrop=e=>{e.preventDefault();const from=selected.indexOf(dragId),to=selected.indexOf(row.dataset.drag);if(from>=0&&to>=0&&from!==to){const [id]=selected.splice(from,1);selected.splice(to,0,id);renderSelection();}};});
+  }
+  function source(local){el('aw-ai-pool').hidden=local;el('aw-local-pool').hidden=!local;el('aw-ai-source').setAttribute('aria-pressed',String(!local));el('aw-local-source').setAttribute('aria-pressed',String(local));}
+  function openDetail(id){
+    const r=records.find(x=>x.id===id); if(!r)return;detailId=id;
+    el('aw-detail-id').textContent=r.id;
+    el('aw-detail-status').textContent=r.status;el('aw-detail-status').dataset.state=r.status;
+    el('aw-detail-count').textContent=`${r.images.length} 张 · 顺序已固定`;
+    el('aw-snapshots').innerHTML=r.images.map((id,i)=>{const a=findAsset(id);return `<div class="aw-snapshot"><div class="aw-picture">${id}</div><div class="aw-picture-label">${i+1}. 图片 ${id}</div><div class="aw-note" style="padding:0 7px 8px">${safe(a.group)} · v1</div></div>`}).join('');
+    el('aw-detail-info').innerHTML=`<dt>店铺</dt><dd>Amazon-示例-US</dd><dt>ASIN</dt><dd>${r.asin}</dd><dt>任务来源</dt><dd>${r.source}</dd><dt>发起人</dt><dd>当前用户</dd><dt>推送时间</dt><dd>${r.time}</dd>`;
+    const result=r.status==='上传失败'?'示例原因：第 2 张图片未能被下游读取。':r.status==='上传成功'?'已收到本次上传成功结果。':'正在等待本次推送的处理结果。';
+    el('aw-detail-result').innerHTML=`<div ${r.status==='上传失败'?'class="aw-error"':''}>${result}</div><div class="aw-note" style="margin-top:9px">${r.status==='上传失败'?'重试方式待下游接口确认':'示例状态'}</div>`;
+    el('aw-copy').disabled=r.status==='处理中';show('detail');
+  }
+  root.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>show(b.dataset.go));
+  ['aw-filter-shop','aw-filter-status','aw-filter-source'].forEach(id=>el(id).onchange=renderRows);el('aw-filter-asin').oninput=renderRows;
+  el('aw-new').onclick=()=>{selected=[];source(false);renderSelection();show('compose');};
+  el('aw-asin').onchange=()=>{selected=[];renderSelection();};
+  el('aw-ai-source').onclick=()=>source(false);el('aw-local-source').onclick=()=>source(true);
+  el('aw-add-local').onclick=()=>{localCounter++;assets.push({id:'L'+localCounter,asin:el('aw-asin').value,group:'本地上传',origin:'本地上传',state:'检测通过（示例）'});renderSelection();};
+  el('aw-preview-btn').onclick=()=>{el('aw-preview-target').textContent=`${el('aw-shop').value} · ${el('aw-asin').value} · ${selected.length} 张`;el('aw-preview-images').innerHTML=selected.map((id,i)=>`<div class="aw-previewitem">第 ${i+1} 张 · 图片 ${id}<div class="aw-note">${safe(findAsset(id).group)}</div></div>`).join('');show('preview');};
+  el('aw-confirm').onclick=()=>{if(el('aw-preview').hidden||!selected.length)return;const id='PUSH-'+String(records.length+1).padStart(3,'0');records.unshift({id,asin:el('aw-asin').value,source:'人工',status:'处理中',time:'刚刚（示例）',images:[...selected]});openDetail(id);};
+  el('aw-copy').onclick=()=>{const r=records.find(x=>x.id===detailId);if(!r||r.status==='处理中')return;selected=[...r.images];el('aw-asin').value=r.asin;source(false);renderSelection();show('compose');};
+  el('aw-aplus-tab').onclick=()=>show('list');
+  renderRows();renderSelection();
+})();
+</script>
+</body>
+</html>
